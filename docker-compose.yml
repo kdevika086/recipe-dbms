@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: recipe_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: recipe_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - recipe_pg_data:/var/lib/postgresql/data
+
+volumes:
+  recipe_pg_data:

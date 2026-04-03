@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.pyc
+backend/.venv/
+
+# OS
+.DS_Store
+
+# Env
+.env
+
+# Optional frontend runtime artifacts
+node_modules/

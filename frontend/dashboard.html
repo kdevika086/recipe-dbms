@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | Recipe Management</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="inner">
+        <div class="brand">Recipe Management</div>
+        <nav class="nav-links">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="favourites.html">Favourites</a>
+          <a id="adminLink" class="hidden" href="admin.html">Admin Dashboard</a>
+          <span id="currentUser" class="pill"></span>
+          <button id="logoutBtn" class="secondary">Logout</button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="card">
+        <h2>Find Recipes</h2>
+        <div class="row-3">
+          <div>
+            <label for="filterTime">Max Cooking Time (minutes)</label>
+            <input id="filterTime" type="number" min="1" />
+          </div>
+          <div>
+            <label for="filterDifficulty">Difficulty</label>
+            <select id="filterDifficulty">
+              <option value="">All</option>
+              <option>Easy</option>
+              <option>Medium</option>
+              <option>Hard</option>
+            </select>
+          </div>
+          <div>
+            <label for="filterCategory">Category</label>
+            <select id="filterCategory"></select>
+          </div>
+        </div>
+        <label for="filterIngredients">Ingredient IDs (comma-separated)</label>
+        <input id="filterIngredients" placeholder="e.g. 1,2" />
+        <div class="actions" style="margin-top: 10px">
+          <button id="applyFilters">Apply Filters</button>
+          <button id="clearFilters" class="secondary">Clear</button>
+        </div>
+      </section>
+
+      <section class="card" style="margin-top: 14px">
+        <h2>Recipes</h2>
+        <p id="message" class="message"></p>
+        <div id="recipesGrid" class="grid"></div>
+      </section>
+    </main>
+
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+  </body>
+</html>

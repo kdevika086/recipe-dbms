@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="inner">
+        <div class="brand">Recipe Management</div>
+        <nav class="nav-links">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="favourites.html">Favourites</a>
+          <a href="admin.html">Admin Dashboard</a>
+          <span id="currentUser" class="pill"></span>
+          <button id="logoutBtn" class="secondary">Logout</button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="card">
+        <h2>Create / Update Recipe</h2>
+        <p class="muted">For ingredients and steps use JSON arrays.</p>
+        <p id="recipeMessage" class="message"></p>
+        <form id="recipeForm">
+          <input id="recipeID" type="hidden" />
+          <div class="row">
+            <div>
+              <label for="title">Title</label>
+              <input id="title" required />
+            </div>
+            <div>
+              <label for="categoryID">Category</label>
+              <select id="categoryID" required></select>
+            </div>
+          </div>
+          <div class="row-3">
+            <div>
+              <label for="cooking_time">Cooking Time</label>
+              <input id="cooking_time" type="number" min="1" required />
+            </div>
+            <div>
+              <label for="difficulty">Difficulty</label>
+              <select id="difficulty" required>
+                <option>Easy</option>
+                <option>Medium</option>
+                <option>Hard</option>
+              </select>
+            </div>
+          </div>
+          <label for="description">Description</label>
+          <textarea id="description" required></textarea>
+          <label for="ingredientsJson">Ingredients JSON</label>
+          <textarea id="ingredientsJson" required placeholder='[{"ingredientID":1,"quantity":2,"unit":"pcs"}]'></textarea>
+          <label for="stepsJson">Steps JSON</label>
+          <textarea id="stepsJson" required placeholder='[{"step_no":1,"instruction":"Mix well"}]'></textarea>
+          <div class="actions" style="margin-top: 10px">
+            <button type="submit" class="success">Save Recipe</button>
+            <button type="button" id="resetRecipeForm" class="secondary">Clear</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="card" style="margin-top: 14px">
+        <h2>Manage Categories</h2>
+        <p id="categoryMessage" class="message"></p>
+        <div class="actions">
+          <input id="newCategoryName" placeholder="Category name" />
+          <button id="addCategoryBtn">Add Category</button>
+        </div>
+        <div id="categoriesList" class="grid" style="margin-top: 10px"></div>
+      </section>
+
+      <section class="card" style="margin-top: 14px">
+        <h2>Manage Ingredients</h2>
+        <p id="ingredientMessage" class="message"></p>
+        <div class="actions">
+          <input id="newIngredientName" placeholder="Ingredient name" />
+          <button id="addIngredientBtn">Add Ingredient</button>
+        </div>
+        <div id="ingredientsList" class="grid" style="margin-top: 10px"></div>
+      </section>
+
+      <section class="card" style="margin-top: 14px">
+        <h2>All Recipes</h2>
+        <div id="adminRecipesList" class="grid"></div>
+      </section>
+    </main>
+
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/admin.js"></script>
+  </body>
+</html>

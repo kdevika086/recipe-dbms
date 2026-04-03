@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipe Details</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="inner">
+        <div class="brand">Recipe Management</div>
+        <nav class="nav-links">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="favourites.html">Favourites</a>
+          <a id="adminLink" class="hidden" href="admin.html">Admin Dashboard</a>
+          <span id="currentUser" class="pill"></span>
+          <button id="logoutBtn" class="secondary">Logout</button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="card">
+        <p id="message" class="message"></p>
+        <div id="recipeDetail"></div>
+      </section>
+    </main>
+
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/recipe.js"></script>
+  </body>
+</html>

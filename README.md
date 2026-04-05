@@ -1,7 +1,7 @@
 # Recipe Management System (FastAPI + PostgreSQL + Vanilla JS)
 
 A full-stack Recipe Management System with JWT authentication, role-based access control, and a responsive frontend built with HTML/CSS/JavaScript.
-Link: https://transcendent-alfajores-182d42.netlify.app/
+Link: https://recipedatabase.netlify.app/
 ## Features
 
 - JWT-based authentication (register, login, current user)

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/styles.css?v=2" />
   </head>
   <body>
     <header class="topbar">
@@ -23,7 +23,6 @@
     <main class="container">
       <section class="card">
         <h2>Create / Update Recipe</h2>
-        <p class="muted">For ingredients and steps use JSON arrays.</p>
         <p id="recipeMessage" class="message"></p>
         <form id="recipeForm">
           <input id="recipeID" type="hidden" />
@@ -53,10 +52,25 @@
           </div>
           <label for="description">Description</label>
           <textarea id="description" required></textarea>
-          <label for="ingredientsJson">Ingredients JSON</label>
-          <textarea id="ingredientsJson" required placeholder='[{"ingredientID":1,"quantity":2,"unit":"pcs"}]'></textarea>
-          <label for="stepsJson">Steps JSON</label>
-          <textarea id="stepsJson" required placeholder='[{"step_no":1,"instruction":"Mix well"}]'></textarea>
+
+          <div class="editor-block">
+            <div class="section-head">
+              <label>Ingredients</label>
+              <button type="button" id="addIngredientRow" class="secondary">Add Ingredient</button>
+            </div>
+            <p class="muted helper-text">Each row captures ingredient name, quantity, and unit.</p>
+            <div id="ingredientRows" class="editor-list"></div>
+          </div>
+
+          <div class="editor-block">
+            <div class="section-head">
+              <label>Steps</label>
+              <button type="button" id="addStepRow" class="secondary">Add Step</button>
+            </div>
+            <p class="muted helper-text">Enter one cooking instruction per row.</p>
+            <div id="stepRows" class="editor-list"></div>
+          </div>
+
           <div class="actions" style="margin-top: 10px">
             <button type="submit" class="success">Save Recipe</button>
             <button type="button" id="resetRecipeForm" class="secondary">Clear</button>
@@ -92,6 +106,6 @@
 
     <script src="js/config.js"></script>
     <script src="js/auth.js"></script>
-    <script src="js/admin.js"></script>
+    <script src="js/admin.js?v=2"></script>
   </body>
 </html>

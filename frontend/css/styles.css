@@ -19,8 +19,19 @@ body {
   margin: 0;
   font-family: "Nunito", "Segoe UI", sans-serif;
   color: var(--text);
-  background: radial-gradient(circle at top right, #ffe4c9, transparent 36%), var(--bg);
+  background: var(--bg);
   min-height: 100vh;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(rgba(245, 240, 232, 0.28), rgba(245, 240, 232, 0.28)),
+    url("../assets/background.jpeg") center / cover no-repeat;
 }
 
 .container {
@@ -35,6 +46,10 @@ body {
   border-radius: 14px;
   padding: 18px;
   box-shadow: 0 6px 18px rgba(17, 17, 17, 0.06);
+}
+
+.page-shell {
+  padding: 8px 0 0;
 }
 
 .auth-wrap {
@@ -69,6 +84,18 @@ textarea {
   border: 1px solid var(--border);
   font: inherit;
   background: #fff;
+}
+
+input,
+select {
+  height: 56px;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+select,
+select option {
+  font-size: 1rem;
 }
 
 textarea {
@@ -149,6 +176,21 @@ button.success {
   gap: 10px;
 }
 
+.empty-state-card {
+  width: min(460px, 100%);
+  padding: 24px;
+  box-shadow: 0 14px 34px rgba(17, 17, 17, 0.12);
+}
+
+.empty-state-card h3,
+.empty-state-card p {
+  margin: 0;
+}
+
+.empty-state-card p {
+  margin-top: 8px;
+}
+
 .meta {
   display: flex;
   gap: 8px;
@@ -185,6 +227,101 @@ button.success {
   flex-wrap: wrap;
 }
 
+.ingredient-filter-bar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: end;
+}
+
+.selected-ingredients {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.ingredient-chip {
+  background: var(--panel-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  min-height: auto;
+  height: auto;
+  padding: 8px 12px;
+}
+
+.ingredient-chip:hover {
+  background: #efe3d1;
+}
+
+.editor-block {
+  margin-top: 14px;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.section-head label {
+  margin: 0;
+}
+
+.helper-text {
+  margin: 0 0 10px;
+}
+
+.editor-list {
+  display: grid;
+  gap: 10px;
+}
+
+.editor-row {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  background: var(--panel-2);
+}
+
+.ingredient-row {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(110px, 0.9fr) minmax(110px, 0.9fr) auto;
+  gap: 10px;
+  align-items: end;
+}
+
+.ingredient-row input,
+.ingredient-row select,
+.ingredient-row button {
+  height: 56px;
+}
+
+.step-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: start;
+}
+
+.step-badge {
+  min-width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  color: var(--brand-dark);
+  background: #ffe8d2;
+  border: 1px solid #f2c9a3;
+}
+
+.step-row textarea {
+  min-height: 72px;
+}
+
 .message {
   margin: 8px 0;
   font-weight: 700;
@@ -209,11 +346,19 @@ button.success {
 
 @media (max-width: 768px) {
   .row,
-  .row-3 {
+  .row-3,
+  .ingredient-row,
+  .step-row,
+  .ingredient-filter-bar {
     grid-template-columns: 1fr;
   }
 
   .topbar .inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .section-head {
     flex-direction: column;
     align-items: flex-start;
   }

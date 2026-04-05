@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard | Recipe Management</title>
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/styles.css?v=2" />
   </head>
   <body>
     <header class="topbar">
@@ -42,8 +42,13 @@
             <select id="filterCategory"></select>
           </div>
         </div>
-        <label for="filterIngredients">Ingredient IDs (comma-separated)</label>
-        <input id="filterIngredients" placeholder="e.g. 1,2" />
+        <label for="filterIngredients">Ingredients</label>
+        <div class="ingredient-filter-bar">
+          <input id="filterIngredients" list="ingredientOptions" placeholder="Type or choose an ingredient" />
+          <button id="addFilterIngredient" type="button">Add</button>
+        </div>
+        <datalist id="ingredientOptions"></datalist>
+        <div id="selectedIngredients" class="selected-ingredients"></div>
         <div class="actions" style="margin-top: 10px">
           <button id="applyFilters">Apply Filters</button>
           <button id="clearFilters" class="secondary">Clear</button>
@@ -59,6 +64,6 @@
 
     <script src="js/config.js"></script>
     <script src="js/auth.js"></script>
-    <script src="js/dashboard.js"></script>
+    <script src="js/dashboard.js?v=2"></script>
   </body>
 </html>

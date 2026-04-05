@@ -18,7 +18,11 @@ async function loadFavourites() {
   try {
     const recipes = await apiFetch("/favourites");
     if (!recipes.length) {
-      favGrid.innerHTML = "<p class='muted'>No favourites added yet.</p>";
+      favGrid.innerHTML = `
+        <article class="card empty-state-card">
+          <h3>No favourites added yet.</h3>
+        </article>
+      `;
       return;
     }
 
